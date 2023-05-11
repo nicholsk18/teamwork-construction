@@ -283,7 +283,7 @@
         <div class="w-full h-16 absolute bg-white">
           <h4 class="text-center text-md text-siteBrown-500 uppercase pt-8">Service Area</h4>
         </div>
-        <iframe id="maps" src="https://www.google.com/maps/d/u/0/embed?mid=18D3nwlUODEr2ZccivcYPp6C0yPHGU1I&ehbc=2E312F" width="100%" height="550"></iframe>
+        <iframe id="maps" src="https://www.google.com/maps/d/u/0/embed?mid=18D3nwlUODEr2ZccivcYPp6C0yPHGU1I&ehbc=2E312F" width="100%" height="550" async></iframe>
       </div>
     </div>
   </div>
@@ -327,7 +327,7 @@
 <!--    </script>-->
 
 <script src="https://cdn.jsdelivr.net/npm/venobox@2.0.4/dist/venobox.min.js"></script>
-<script>
+<script defer>
   new VenoBox({
     selector: '.gallery-box',
     numeration: true,
