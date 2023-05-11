@@ -212,40 +212,40 @@
 
     <div class="columns-3 m-5">
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_1790.png" alt="Gallery Image" />
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_1790.png" alt="Gallery Image" />
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_1793.png" alt="Gallery Image" />
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_1793.png" alt="Gallery Image" />
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_2484.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2484.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_2487.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2487.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_2488.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2488.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_2498.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2498.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_2542.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2542.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_2543.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2543.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_2544.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2544.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_2598.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2598.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/IMG_2635.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2635.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-full pb-5" src="./assets/project/69644929418__BA6A4425-B92D-45B5-BD18-781D797AE1E6.png" alt="Gallery Image">
+        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/69644929418__BA6A4425-B92D-45B5-BD18-781D797AE1E6.png" alt="Gallery Image">
       </a>
     </div>
   </div>
@@ -336,11 +336,15 @@
     ratio: 'full'
   });
 
-  const gallery = document.querySelectorAll('.gallery-box');
-  gallery.forEach(item => {
-    const img = item.querySelector('img')
-    item.href = img.src
-  })
+  document.addEventListener("DOMContentLoaded", () => {
+    const gallery = document.querySelectorAll('.gallery-box');
+    gallery.forEach(item => {
+      const img = item.querySelector('img')
+      img.src = img.dataset.src
+      img.style = "width:100%;";
+      item.href = img.dataset.src
+    })
+  });
 </script>
 </body>
 </html>
