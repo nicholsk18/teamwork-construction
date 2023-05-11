@@ -18,6 +18,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/venobox@2.0.4/dist/venobox.min.css">
+
+  <link rel="preload" href="./assets/banner.jpg" as="image">
 </head>
 <body>
 <section id="hero">
@@ -212,40 +214,40 @@
 
     <div class="columns-3 m-5">
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_1790.png" alt="Gallery Image" />
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_1790.png" alt="Gallery Image" />
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_1793.png" alt="Gallery Image" />
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_1793.png" alt="Gallery Image" />
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2484.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2484.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2487.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2487.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2488.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2488.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2498.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2498.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2542.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2542.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2543.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2543.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2544.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2544.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2598.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2598.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2635.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/IMG_2635.png" alt="Gallery Image">
       </a>
       <a class="gallery-box" href="#" data-gall="gallery01">
-        <img loading="lazy" class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/69644929418__BA6A4425-B92D-45B5-BD18-781D797AE1E6.png" alt="Gallery Image">
+        <img class="w-4 pb-5" src="./assets/loading.gif" data-src="./assets/project/69644929418__BA6A4425-B92D-45B5-BD18-781D797AE1E6.png" alt="Gallery Image">
       </a>
     </div>
   </div>
@@ -336,13 +338,22 @@
     ratio: 'full'
   });
 
-  document.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener('load', function () {
     const gallery = document.querySelectorAll('.gallery-box');
+
     gallery.forEach(item => {
       const img = item.querySelector('img')
-      img.src = img.dataset.src
-      img.style = "width:100%;";
-      item.href = img.dataset.src
+      var downloadingImage = new Image();
+      downloadingImage.onload = function(){
+        img.src = this.src;   
+        item.href = this.src
+        img.style = "width:100%;";
+      };
+      downloadingImage.src = img.dataset.src;
+    })
+
+    document.querySelectorAll('.gallery-box img').forEach(img => {
+      img.style = "width:100%;"
     })
   });
 </script>
