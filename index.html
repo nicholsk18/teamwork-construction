@@ -329,7 +329,7 @@
 <!--    </script>-->
 
 <script src="https://cdn.jsdelivr.net/npm/venobox@2.0.4/dist/venobox.min.js"></script>
-<script defer>
+<script type='module' defer>
   new VenoBox({
     selector: '.gallery-box',
     numeration: true,
@@ -349,12 +349,10 @@
         item.href = this.src
         img.style = "width:100%;";
       };
+
       downloadingImage.src = img.dataset.src;
     })
 
-    document.querySelectorAll('.gallery-box img').forEach(img => {
-      img.style = "width:100%;"
-    })
   });
 </script>
 </body>
