@@ -59,8 +59,8 @@
         </p>
 
         <div class="flex flex-col md:flex-row mt-10 justify-center">
-          <a class="bg-green-700 hover:bg-green-900 px-5 py-5 m-5" href="mailto:teamworkconstruction22@gmail.com">teamworkconstruction22@gmail.com</a>
-          <a class="bg-green-700 hover:bg-green-900 px-28 py-5 m-5" href="tel:2055735091">205-573-5091</a>
+          <a id="email-link" class="bg-green-700 hover:bg-green-900 px-5 py-5 m-5" href="mailto:teamworkconstruction22@gmail.com">teamworkconstruction22@gmail.com</a>
+          <a id="phone-link" class="bg-green-700 hover:bg-green-900 px-28 py-5 m-5" href="tel:2055735091">205-573-5091</a>
         </div>
       </div>
 
@@ -338,6 +338,18 @@
 <!--        window.initMap = initMap;-->
 <!--    </script>-->
 
+<script>
+  document.querySelector('#email-link').addEventListener('click', function() {
+    gtag("event", "email_click", {
+      "email_click": "email",
+    });
+  })
+  document.querySelector('#phone-link').addEventListener('click', function() {
+    gtag("event", "phone_click", {
+      "phone_click": "call",
+    });
+  })
+</script>
 <script src="https://cdn.jsdelivr.net/npm/venobox@2.0.4/dist/venobox.min.js"></script>
 <script type='module' defer>
   new VenoBox({
